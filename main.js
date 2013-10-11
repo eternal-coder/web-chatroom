@@ -97,11 +97,15 @@ function handleServerMessage(data) {
 
 }
 
+function pad(n){
+	return n<10 ? '0' + n : n
+}
+
 function timeStamp(){
 	today = new Date();
-	h=today.getHours();
-	m=today.getMinutes();
-	s=today.getSeconds();
+	h=pad(today.getHours());
+	m=pad(today.getMinutes());
+	s=pad(today.getSeconds());
 	return '['+h+':'+m+':'+s+'] ';
 }
 
