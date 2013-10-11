@@ -136,15 +136,13 @@ function blink() {
 	}
 }
 
+window.hasfocus = false;
+
 window.onfocus = function() { 
   if(blinkInterval) window.clearInterval(blinkInterval); 
   blinkInterval = false;
-}
-
-window.hasfocus = false;
-
-window.onfocus = function(){
-   this.hasfocus = true;
+  this.hasfocus = true;
+  document.title = "The room"; 
 }
 
 window.onblur = function(){
