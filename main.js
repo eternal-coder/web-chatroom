@@ -118,7 +118,7 @@ function longPoll()
     });
 }
 
-var blinkInterval = false;
+var blinkInterval;
 
 function gotANewMessage() {
   if(!window.hasfocus) { 
