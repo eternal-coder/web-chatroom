@@ -5,7 +5,7 @@
 <html>
     <head>
         <title>
-            longpolling
+            The room
         </title>
         <link rel="stylesheet" type="text/css" href="main.css">
         <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
