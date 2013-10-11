@@ -1,0 +1,48 @@
+body{
+    background-color: black;
+    color: #EFEFEF;
+    font-family: monospace;
+}
+
+#log{
+    position: fixed;
+    top: 0;
+    left: 10px;
+    right: 0;
+    overflow-y: auto;
+    bottom: 20px;
+    vertical-align: bottom;
+}
+
+#logcontent{
+    position: absolute;
+    bottom: 0;
+    margin-top: 1px;
+}
+
+.console{
+    position: fixed;
+    bottom: 3px;
+    left: 0px;
+}
+
+#con{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 20px;
+    right: 0;
+    background-color: black;
+    color: #EFEFEF;;
+    border: none;
+    font-family: monospace;
+    outline: none;
+}
+
+.server{
+    color: #F9F9C2;
+}
+
+pre{
+    margin: 0;
+}
