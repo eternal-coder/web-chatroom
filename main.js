@@ -13,8 +13,8 @@ $(function() {
 			if(history.length>20){
 				history.shift();
 			}
-			if(command=="clear"){
-				$("#log").html(">clear");
+			if(command=="/clear"){
+				$("#log").html("");
 				$("#con").val("");
 				return;
 			}
