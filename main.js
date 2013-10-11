@@ -69,7 +69,6 @@ function randomString(length, chars) {
 }
 
 function handleServerMessage(data) {
-		
         json = $.parseJSON(data);
         if (json.result == "success") {
             $("#log").append("<br/>");
@@ -93,6 +92,7 @@ function handleServerMessage(data) {
             }
 
             $("#log").scrollTop($("#log")[0].scrollHeight);
+			gotANewMessage();
         }
 
 }
@@ -118,3 +118,35 @@ function longPoll()
     });
 }
 
+var blinkInterval = false;
+
+function gotANewMessage() {
+  if(!window.hasfocus) { 
+    blinkInterval = window.setInterval(blink, 500);
+  }
+}
+
+function blink() {
+	if(window.blinkOn && !window.hasfocus) {
+		document.title = "The room [!]"; 
+		window.blinkOn = false; 
+	} else {
+		document.title = "The room"; 
+		window.blinkOn = true; 
+	}
+}
+
+window.onfocus = function() { 
+  if(blinkInterval) window.clearInterval(blinkInterval); 
+  blinkInterval = false;
+}
+
+window.hasfocus = false;
+
+window.onfocus = function(){
+   this.hasfocus = true;
+}
+
+window.onblur = function(){
+   this.hasfocus = false;
+}
