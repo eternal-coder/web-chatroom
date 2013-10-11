@@ -69,14 +69,16 @@ function randomString(length, chars) {
 }
 
 function handleServerMessage(data) {
-            json = $.parseJSON(data);
+		
+        json = $.parseJSON(data);
         if (json.result == "success") {
             $("#log").append("<br/>");
             str = json.message;
             message = $.parseJSON(str);
             for (line in message.lines) {
 				_line = message.lines[line];
-                pre = '<pre class="server">'; 
+                pre = '<pre class="server">'+timeStamp();
+				
 				for (shard in _line.shards){
 					_shard = _line.shards[shard];
 					span = '<span';
@@ -93,6 +95,14 @@ function handleServerMessage(data) {
             $("#log").scrollTop($("#log")[0].scrollHeight);
         }
 
+}
+
+function timeStamp(){
+	today = new Date();
+	h=today.getHours();
+	m=today.getMinutes();
+	s=today.getSeconds();
+	return '['+h+':'+m+':'+s+'] ';
 }
 
 function longPoll()
