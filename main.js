@@ -136,7 +136,7 @@ function blink() {
 	}
 }
 
-window.hasfocus = false;
+window.hasfocus = true;
 
 window.onfocus = function() { 
   if(blinkInterval) window.clearInterval(blinkInterval); 
