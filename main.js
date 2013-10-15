@@ -77,7 +77,7 @@ function handleServerMessage(data) {
         message = $.parseJSON(str);
         for (line in message.lines) {
             _line = message.lines[line];
-            pre = '<pre class="server">' + timeStamp();
+            pre = '<pre class="server">' + (message.system ? "" : timeStamp());
 
             for (shard in _line.shards) {
                 _shard = _line.shards[shard];
@@ -93,7 +93,7 @@ function handleServerMessage(data) {
         }
 
         $("#log").scrollTop($("#log")[0].scrollHeight);
-        gotANewMessage();
+        //gotANewMessage();
     }
 
 }

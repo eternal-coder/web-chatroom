@@ -31,6 +31,7 @@ if (!empty($_POST['command']) && !empty($_POST['sessionId'])) {
             if ($handler->canHandle($command)) {
                 $handler->setSessionId($sessionId);
                 $message = $handler->handle($command);
+				$message->system = true;
                 if ($message->global) {
                     sendGlobal($message);
                 } else {
@@ -52,7 +53,8 @@ if (!empty($_POST['command']) && !empty($_POST['sessionId'])) {
 
     //Defaul action for unknown commands
     $message = new Message();
-    $message->addLine("Unknown command");
+    $message->addLine("Unknown command '$command'");
+	$message->system = true;
     sendSingle($message, $sessionId);
 }
 

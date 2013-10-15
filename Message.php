@@ -8,6 +8,7 @@ class Message {
     public $global = false;
     public $sessionId;
     public $lines = array();
+	public $system = false;
 
     public function addLine($text, $color = null) {
 		$line = new Line();
