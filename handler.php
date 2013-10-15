@@ -12,12 +12,13 @@ abstract class iActionHandler {
         $this->mysqli = new mysqli(Config::dbhost, Config::dbuser, Config::dbpassword, Config::dbname);
     }
 
-    public function setSessionId($sessionId){
+    public function setSessionId($sessionId) {
         $this->sessionId = $sessionId;
     }
-    
+
     public abstract function canHandle($command);
 
     public abstract function handle($command);
 }
+
 ?>
