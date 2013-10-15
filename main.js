@@ -3,7 +3,7 @@
 var sessionId = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
 var history = new Array();
 var historyShift = 0;
-var welcome = "Welcome to the char room. Type /help if you need help. Enjoy.";
+var welcome = "Welcome to the chat room. Type /help if you need help. Enjoy.";
 
 $(function() {
     $("#con").keypress(function(ev) {
