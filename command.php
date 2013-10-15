@@ -20,6 +20,7 @@ if (!empty($_POST['command']) && !empty($_POST['sessionId'])) {
     $handlers[] = new NameHandler();
     $handlers[] = new AboutHandler();
     $handlers[] = new OnlineHandler();
+	$handlers[] = new HelpHandler();
 
 
     $sayHandler = new SayHandler();
