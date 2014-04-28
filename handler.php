@@ -1,4 +1,4 @@
-<?
+<?php
 
 require_once 'Message.php';
 require_once 'config.php';

@@ -1,5 +1,12 @@
 <?php
 
+//in case if magic quotes option is on
+if (in_array(strtolower(ini_get('magic_quotes_gpc')), array('1', 'on'))) {
+    $_POST = array_map('stripslashes', $_POST);
+    $_GET = array_map('stripslashes', $_GET);
+    $_COOKIE = array_map('stripslashes', $_COOKIE);
+}
+
 session_start();
 require_once 'config.php';
 $mysqli = new mysqli(Config::dbhost, Config::dbuser, Config::dbpassword, Config::dbname);
@@ -20,7 +27,7 @@ if (!empty($_POST['command']) && !empty($_POST['sessionId'])) {
     $handlers[] = new NameHandler();
     $handlers[] = new AboutHandler();
     $handlers[] = new OnlineHandler();
-	$handlers[] = new HelpHandler();
+    $handlers[] = new HelpHandler();
 
 
     $sayHandler = new SayHandler();
@@ -32,7 +39,7 @@ if (!empty($_POST['command']) && !empty($_POST['sessionId'])) {
             if ($handler->canHandle($command)) {
                 $handler->setSessionId($sessionId);
                 $message = $handler->handle($command);
-				$message->system = true;
+                $message->system = true;
                 if ($message->global) {
                     sendGlobal($message);
                 } else {
@@ -55,7 +62,7 @@ if (!empty($_POST['command']) && !empty($_POST['sessionId'])) {
     //Defaul action for unknown commands
     $message = new Message();
     $message->addLine("Unknown command '$command'");
-	$message->system = true;
+    $message->system = true;
     sendSingle($message, $sessionId);
 }
 
